@@ -58,9 +58,9 @@ Store data with **NodeData**, **EdgeData** dictionaries. For heterogeneous graph
   
 **Set**
   
-  **Append writes only**. It should be only used in **Graph Transformations**.
+**Append writes only**. It should be only used in **Graph Transformations**.
   
-  Method
+Method
   
   * Void insert(Nodes node)
   * Nodes iterate()
@@ -75,9 +75,9 @@ Store data with **NodeData**, **EdgeData** dictionaries. For heterogeneous graph
   
 **HashTable**
   
-  All keys have the same type and all values have the same type.
+All keys have the same type and all values have the same type.
   
-  Method:
+Method:
   
   * Void update(key, value, op)
     * op in ['add', 'assign', 'min', 'max']
