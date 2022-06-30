@@ -56,7 +56,7 @@ Store data with **NodeData**, **EdgeData** dictionaries. For heterogeneous graph
       * NodeSetName is SrcNode or DstNode or AllNodes
       * AllNodes only works for heterogeneous graph
   
-  **Set**
+**Set**
   
   **Append writes only**. It should be only used in **Graph Transformations**.
   
@@ -73,7 +73,7 @@ Store data with **NodeData**, **EdgeData** dictionaries. For heterogeneous graph
   # ret.iterate() = [1,2,4,3]
   ```
   
-  **HashTable**
+**HashTable**
   
   All keys have the same type and all values have the same type.
   
