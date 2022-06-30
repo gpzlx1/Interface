@@ -49,12 +49,12 @@ Store data with **NodeData**, **EdgeData** dictionaries. For heterogeneous graph
   # g.Edges() = ([1,1,3], [1,4,4])
   ```
 
-  * Other methods
-    * g.num_nodes()
-    * g.num_edges()
-    * g.degrees(NodeSetName)
-      * NodeSetName is SrcNode or DstNode or AllNodes
-      * AllNodes only works for heterogeneous graph
+* Other methods
+  * g.num_nodes()
+  * g.num_edges()
+  * g.degrees(NodeSetName)
+    * NodeSetName is SrcNode or DstNode or AllNodes
+    * AllNodes only works for heterogeneous graph
   
 **Set**
   
@@ -80,7 +80,7 @@ All keys have the same type and all values have the same type.
 Method:
   
   * Void update(key, value, op)
-    * op in ['add', 'assign', 'min', 'max']
+    * op is in ['add', 'assign', 'min', 'max']
   * Void delete(key)
   * Tuple(Keys, Values) iterate()
   
