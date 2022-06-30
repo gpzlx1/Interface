@@ -54,7 +54,7 @@ Store data with **NodeData**, **EdgeData** dictionaries. For heterogeneous graph
   * g.num_edges()
   * g.degrees(NodeSetName)
     * NodeSetName is SrcNode or DstNode or AllNodes
-    * AllNodes only works for heterogeneous graph
+    * AllNodes for heterogeneous graph is undefined
   
 **Set**
   
