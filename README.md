@@ -96,7 +96,8 @@ Method:
   Dir.delete([2,3]) 
   # key = [1], value = [2]
   # Dir.iterate() = ([1], [2])
-
+  ```
+  
 ## Transformations
 
 ### NodeFilter(NodeSetName, FilterFunc)
