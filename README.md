@@ -226,6 +226,6 @@ g.DstNodes(unique=True)
 g.Edges()
 ```
 
-##  Known issues
+##  Known Issues
 
 * **SEAL** could not be expressed efficiently
