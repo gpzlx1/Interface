@@ -1,30 +1,40 @@
 # KHops is used in GraphSAGE, VR-GCN, GNN-AutoScale
-def KHops_origin(g, seeds, fanouts):
+def GraphSAGE(g, seeds, fanouts):
     ret = []
     for fanout in fanouts:
-        subg = g.NodeFilter('DstNode', Fn.in(seeds)).NeighborFilter('DstNode', Fn.random(fanout))
+        subg = g.NodeFilter('DstNode', Fn.in(seeds))
+        subg = subg.NeighborFilter('DstNode', Fn.random(fanout))
+        seeds = subg.AllNodes()
         ret.append(subg)
-        seeds = subg.AllNodes(unique=False)
-    return ret
+        
+    input_nodes = seeds
+    return ret, input_nodes
 
+
+def GraphSAGE_paper(g, seeds, fanouts):
+    ret = []
+    for fanout in fanouts:
+        subg = g.NodeFilter('DstNode', Fn.in(seeds))
+        subg = subg.NeighborFilter('DstNode', Fn.random(fanout))
+        seeds = subg.SrcNodes(unique=False)
+        ret.append(subg)
+        
+    input_nodes = seeds
+    return ret, input_nodes
 
 def KHops_dgl(g, seeds, fanouts):
     ret = []
     for fanout in fanouts:
         subg = g.NodeFilter('DstNode', Fn.in(seeds)).NeighborFilter('DstNode', Fn.random(fanout))
-        ret.append(subg)
         seeds = subg.AllNodes(unique=True)
+        ret.append(subg)
     return ret
 
-# ?? question 1 : the reference about subg.DstData
-# ?? question 2 : the relation between AllData, DstData, SrcData
-#g.DstData['w'] = bias
 def KHops_bias_dgl(g, seeds, fanouts, probs):
     ret = []
     for fanout in fanouts:
-        #subg = g.NodeFilter('DstNode', Fn.in(seeds)).NeighborFilter('DstNode', Fn.random(fanout, g.SrcData['w']))
         subg = g.NodeFilter('DstNode', Fn.in(seeds))
-        subg = g.NeighborFilter('DstNode', Fn.random(fanout, probs[subg.SrcNodes(unique=False)]))
-        ret.append(subg)
+        subg = subg.NeighborFilter('DstNode', Fn.random(fanout, probs[subg.SrcNodes(unique=False)]))
         seeds = subg.AllNodes(unique=True)
+        ret.append(subg)
     return ret
